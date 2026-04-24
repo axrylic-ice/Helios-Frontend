@@ -1,0 +1,14 @@
+:root {
+  --surface-primary: #080808;
+  --surface-elevated: rgba(30, 30, 30, 0.6);
+  --glass: rgba(53, 53, 52, 0.2);
+
+  --text-primary: #E5E2E1;
+  --text-secondary: rgba(229,226,225,0.5);
+
+  --gold: #F3BE68;
+  --gold-muted: #C29241;
+
+  --success: #1EBD64;
+  --danger: #9F6506;
+}
