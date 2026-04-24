@@ -8,7 +8,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="w-[71px] h-screen bg-[var(--surface-primary)] border-r border-white/10 flex flex-col items-center py-6">
+    <div className="w-[71px] h-screen bg-[var(--surface-primary)] border-r border-white/10 flex flex-col items-center py-6 sticky top-0">
       {/* Top Icon */}
       <div className="mb-10 text-[var(--text-secondary)]">☰</div>
 
