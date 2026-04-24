@@ -1,13 +1,26 @@
 import Sidebar from "@/components/layout/Sidebar";
+import Header from "@/components/layout/Header";
 
 export default function AppLayout({ children }) {
   return (
-    <div className="flex min-h-screen bg-(--surface-primary) text-(--text-primary)">
-      {/* Sidebar */}
+    <div className="flex min-h-screen bg-[var(--surface-primary)] text-[var(--text-primary)]">
+
+      {/* SIDEBAR */}
       <Sidebar />
 
-      {/* Main Content */}
-      <main className="flex-1 p-6">{children}</main>
+      {/* MAIN AREA */}
+      <div className="flex-1 flex flex-col">
+
+        {/* HEADER */}
+        <Header />
+
+        {/* PAGE CONTENT */}
+        <main className="flex-1 px-6 py-4">
+          {children}
+        </main>
+
+      </div>
+
     </div>
   );
 }
