@@ -1,62 +1,43 @@
-// src/components/layout/Sidebar.js
+"use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { navItems } from "@/lib/nav";
 
 export default function Sidebar() {
+  const pathname = usePathname();
+
   return (
-    <div className="relative w-[214px] h-screen ml-[21px] mt-[108px]">
-
-      {/* LEFT RAIL */}
-      <div className="absolute w-[71px] h-full bg-[#0E0E0E] rounded-[32px] flex flex-col items-center py-6">
-
-        {/* Menu Icon */}
-        <div className="mb-10 text-gray-500 text-xl">
-          ☰
-        </div>
-
-        {/* NAV ICONS */}
-        <div className="flex flex-col gap-9 flex-1 items-center">
-
-          <div className="w-5 h-5 bg-gray-500 rounded-sm" />
-
-          <div className="w-5 h-5 bg-white rounded-sm" /> {/* active */}
-
-          <div className="w-4.5 h-4.5 bg-gray-500 rounded-sm" />
-
-          <div className="w-5 h-5 bg-gray-500 rounded-sm" />
-
-        </div>
-
-        {/* HELP ICON */}
-        <div className="mb-6 text-gray-500 text-lg">
-          ?
-        </div>
+    <div className="w-[71px] h-screen bg-[var(--surface-primary)] border-r border-white/10 flex flex-col items-center py-6">
+      
+      {/* Top Icon */}
+      <div className="mb-10 text-[var(--text-secondary)]">
+        ☰
       </div>
 
-      {/* ACTIVE CARD */}
-      <div className="absolute left-[80px] top-[170px]">
+      {/* NAV */}
+      <div className="flex flex-col gap-8 flex-1 items-center">
+        {navItems.map((item, i) => {
+          const active = pathname === item.path;
 
-        <Link href="/signal-history">
-          <div className="
-            w-33.75 h-[46px]
-            flex items-center gap-3 px-5
-            bg-gradient-to-r from-[rgba(243,190,104,0.2)] to-[rgba(194,146,65,0.2)]
-            border border-[#432C00]
-            rounded-lg
-            shadow-md
-          ">
-
-            <div className="w-4.5 h-4.5 bg-white rounded-sm" />
-
-            <span className="text-sm font-bold text-[#E5E2E1]">
-              Signal History
-            </span>
-
-          </div>
-        </Link>
-
+          return (
+            <Link
+              key={i}
+              href={item.path}
+              className={`
+                w-5 h-5 rounded-sm transition
+                ${active ? "bg-[var(--gold)]" : "bg-gray-500/50 hover:bg-gray-400"}
+              `}
+              title={item.name}
+            />
+          );
+        })}
       </div>
 
+      {/* Bottom Help */}
+      <div className="text-[var(--text-secondary)]">
+        ?
+      </div>
     </div>
   );
 }
