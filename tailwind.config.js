@@ -28,6 +28,20 @@ module.exports = {
         xl2: "16px",
         xl3: "24px",
         xl4: "48px"
+      },
+      spacing: {
+        18: "4.5rem",
+        22: "5.5rem",
+        26: "6.5rem"
+      },
+
+      boxShadow: {
+        soft: "0 10px 30px rgba(0,0,0,0.35)",
+        glow: "0 0 40px rgba(243,190,104,0.15)"
+      },
+
+      maxWidth: {
+        container: "1200px"
       }
     }
   },
