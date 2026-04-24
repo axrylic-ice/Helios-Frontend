@@ -1,8 +1,7 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/app/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./src/app/**/*.{js,jsx}",
+    "./src/components/**/*.{js,jsx}",
   ],
   theme: {
     extend: {
@@ -14,9 +13,6 @@ module.exports = {
       borderRadius: {
         card: "16px",
         pill: "30px",
-      },
-      backdropBlur: {
-        glass: "20px",
       },
     },
   },
