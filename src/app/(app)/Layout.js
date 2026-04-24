@@ -15,7 +15,7 @@ export default function AppLayout({ children }) {
         <Header />
 
         {/* PAGE CONTENT */}
-        <main className="flex-1 px-6 py-4">
+        <main className="flex-1 px-12 py-2">
           {children}
         </main>
 

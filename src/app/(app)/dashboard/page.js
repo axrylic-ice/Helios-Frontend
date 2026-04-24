@@ -3,7 +3,7 @@ import EngineRoomRow from "@/components/dashboard/EngineRoomRow";
 
 export default function DashboardPage() {
   return (
-    <div className="p-6 space-y-8">
+    <div className="p-6 space-y-8 ">
 
       <ActPanel />
 
