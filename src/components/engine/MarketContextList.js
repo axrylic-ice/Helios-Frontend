@@ -2,11 +2,11 @@ export default function MarketContextList() {
   return (
     <div
       className="box-border flex flex-col justify-center items-start p-0 absolute
-      w-[297px] h-[247px] left-[787px] top-[961px]"
+      w-74.25 h-61.75 left-196.75 top-240.25"
     >
       {/* Background Card */}
       <div
-        className="flex flex-col justify-between items-start p-6 gap-[26px]
+        className="flex flex-col justify-between items-start p-6 gap-6.5
         w-full h-full bg-[rgba(21,21,21,0.5)]
         border border-[rgba(79,69,56,0.15)]
         rounded-[48px]"
@@ -43,7 +43,7 @@ export default function MarketContextList() {
 
         {/* BUTTON */}
         <div className="pt-6 w-full">
-          <button className="w-full py-2 bg-[#353534] rounded-[32px] text-[11px] font-bold uppercase tracking-[1.1px] text-[#E5E2E1]">
+          <button className="w-full py-2 bg-[#353534] rounded-4xl text-[11px] font-bold uppercase tracking-[1.1px] text-[#E5E2E1]">
             View Details
           </button>
         </div>

@@ -14,7 +14,7 @@ export default function LSTMCard() {
       </div>
 
       {/* Fake bars */}
-      <div className="flex items-end gap-1 mt-6 h-[100px]">
+      <div className="flex items-end gap-1 mt-6 h-25">
         {[40, 60, 50, 80, 70, 90, 75].map((h, i) => (
           <div
             key={i}

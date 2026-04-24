@@ -1,10 +1,10 @@
 export default function LargePriceCard() {
   return (
-    <div className="relative w-full lg:w-[614px] h-[300px] p-8 rounded-[48px] bg-[rgba(21,21,21,0.5)] border border-white/10 shadow-inner flex flex-col justify-between overflow-hidden">
+    <div className="relative w-full lg:w-153.5 h-75 p-8 rounded-[48px] bg-[rgba(21,21,21,0.5)] border border-white/10 shadow-inner flex flex-col justify-between overflow-hidden">
       
       {/* faint background chart */}
       <div className="absolute bottom-0 left-0 right-0 opacity-10 pointer-events-none">
-        <svg viewBox="0 0 600 120" className="w-full h-[120px]">
+        <svg viewBox="0 0 600 120" className="w-full h-30">
           <path
             d="M0,80 C100,20 200,140 300,60 C400,-10 500,120 600,40"
             stroke="#F3BE68"

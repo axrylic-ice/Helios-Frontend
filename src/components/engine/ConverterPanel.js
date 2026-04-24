@@ -10,7 +10,7 @@ export default function ConverterPanel() {
   const result = amount * rate;
 
   return (
-    <div className="bg-[#151515] rounded-[24px] p-6 h-[462px] flex flex-col">
+    <div className="bg-[#151515] rounded-3xl p-6 h-115.5 flex flex-col">
       <h2 className="text-white font-bold text-lg">
         NGN / USD Converter
       </h2>

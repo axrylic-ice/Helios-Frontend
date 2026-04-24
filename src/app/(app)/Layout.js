@@ -3,7 +3,7 @@ import Header from "@/components/layout/Header";
 
 export default function AppLayout({ children }) {
   return (
-    <div className="flex min-h-screen bg-[var(--surface-primary)] text-[var(--text-primary)]">
+    <div className="flex min-h-screen bg-(--surface-primary) text-(--text-primary)">
 
       {/* SIDEBAR */}
       <Sidebar />
