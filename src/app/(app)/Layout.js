@@ -3,6 +3,7 @@ import Header from "@/components/layout/Header";
 
 export default function AppLayout({ children }) {
   return (
+    <main className="flex-1 px-12 py-2">
     <div className="flex min-h-screen bg-(--surface-primary) text-(--text-primary)">
 
       {/* SIDEBAR */}
@@ -15,12 +16,13 @@ export default function AppLayout({ children }) {
         <Header />
 
         {/* PAGE CONTENT */}
-        <main className="flex-1 px-12 py-2">
+        
           {children}
-        </main>
+        
 
       </div>
 
     </div>
+    </main>
   );
 }
