@@ -6,29 +6,27 @@ import "../globals.css";
 const inter = Inter({ subsets: ["latin"] });
 export default function AppLayout({ children }) {
   return (
-    
-    <div className="flex min-h-screen bg-(--surface-primary) text-(--text-primary)">
+    <html lang="en">
+      <body className={inter.className}>
 
-      {/* SIDEBAR */}
-      <Sidebar />
+        <div className="flex min-h-screen bg-(--surface-primary) text-(--text-primary)">
+          {/* SIDEBAR */}
+          <Sidebar />
 
-      {/* MAIN AREA */}
-      <div className="flex-1 flex flex-col">
+          {/* MAIN AREA */}
+          <div className="flex-1 flex flex-col">
+            {/* HEADER */}
+            <Header />
 
-        {/* HEADER */}
-        <Header />
-
-        {/* PAGE CONTENT */}
-        <main className="flex-1 px-12 py-2">
-          {children}
-        </main>
-
-      </div>
-
-    </div>
+            {/* PAGE CONTENT */}
+            <main className="flex-1 px-12 py-2">{children}</main>
+          </div>
+        </div>
+        
+      </body>
+    </html>
   );
 }
-
 
 export const metadata = {
   title: "Fotuna ",
