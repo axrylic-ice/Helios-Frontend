@@ -22,7 +22,7 @@ export default function AppLayout({ children }) {
             <main className="flex-1 px-12 py-2">{children}</main>
           </div>
         </div>
-        
+
       </body>
     </html>
   );
