@@ -1,52 +1,69 @@
+"use client";
+
+import React from "react";
+
 export default function MarketContextList() {
   return (
     <div
-      className="box-border flex flex-col justify-center items-start p-0 absolute
-      w-74.25 h-61.75 left-196.75 top-240.25"
+      className="
+      w-full 
+      bg-[#151515]/50
+      hover:bg-[#151515]
+      backdrop-blur-sm
+      border border-white/5
+      rounded-3xl
+      p-5 md:p-6
+      flex flex-col
+      hover:border-[#F3BE68]/20
+      transition-colors
+      duration-500
+    "
     >
-      {/* Background Card */}
-      <div
-        className="flex flex-col justify-between items-start p-6 gap-6.5
-        w-full h-full bg-[rgba(21,21,21,0.5)]
-        border border-[rgba(79,69,56,0.15)]
-        rounded-[48px]"
-      >
-        {/* HEADER */}
-        <div className="pb-4">
-          <h5 className="text-[12px] font-bold uppercase tracking-[1.2px] text-[#E5E2E1]">
-            Network Liquidity
-          </h5>
-        </div>
+      {/* HEADER */}
+      <div className="pb-3 mb-4 border-b border-white/5 flex justify-between items-center">
+        <h5 className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#E5E2E1]/40">
+          Network Liquidity
+        </h5>
+        {/* Minimalist Live Status */}
+        <div className="w-1 h-1 bg-green-500/60 rounded-full" />
+      </div>
 
-        {/* LIST */}
-        <div className="flex flex-col gap-6 w-full">
-
-          {/* Row 1 */}
-          <div className="flex justify-between items-center w-full">
-            <span className="text-[14px] text-[#D3C4B2]">USD Flow</span>
-            <span className="text-[14px] font-bold text-[#E5E2E1]">$12.4M</span>
+      {/* LIST */}
+      <div className="flex flex-col gap-3.5 w-full flex-grow">
+        {[
+          { label: "USD Flow", value: "$12.4M" },
+          { label: "NGN Demand", value: "High" },
+          { label: "Spread Pressure", value: "Rising", color: "text-red-400" },
+        ].map((item, i) => (
+          <div
+            key={i}
+            className="flex justify-between items-center gap-10 group"
+          >
+            <span className="text-[13px] text-[#D3C4B2]/70 group-hover:text-[#D3C4B2] transition-colors">
+              {item.label}
+            </span>
+            <span
+              className={`text-[13px] font-bold text-[#E5E2E1] tabular-nums ${item.color || ""}`}
+            >
+              {item.value}
+            </span>
           </div>
+        ))}
+      </div>
 
-          {/* Row 2 */}
-          <div className="flex justify-between items-center w-full">
-            <span className="text-[14px] text-[#D3C4B2]">NGN Demand</span>
-            <span className="text-[14px] font-bold text-[#E5E2E1]">High</span>
-          </div>
-
-          {/* Row 3 */}
-          <div className="flex justify-between items-center w-full">
-            <span className="text-[14px] text-[#D3C4B2]">Spread Pressure</span>
-            <span className="text-[14px] font-bold text-[#E5E2E1]">Rising</span>
-          </div>
-
-        </div>
-
-        {/* BUTTON */}
-        <div className="pt-6 w-full">
-          <button className="w-full py-2 bg-[#353534] rounded-4xl text-[11px] font-bold uppercase tracking-[1.1px] text-[#E5E2E1]">
-            View Details
-          </button>
-        </div>
+      {/* BUTTON */}
+      <div className="mt-6">
+        <button
+          className="
+          w-full py-2.5 
+          bg-[#1E1E1E] hover:bg-[#252525] 
+          rounded-xl 
+          text-[10px] font-bold uppercase tracking-widest text-[#E5E2E1]/60 hover:text-[#E5E2E1]
+          transition-all border border-white/5 active:scale-[0.98]
+        "
+        >
+          View Details
+        </button>
       </div>
     </div>
   );
