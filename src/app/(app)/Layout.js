@@ -2,14 +2,12 @@ import Sidebar from "@/components/layout/Sidebar";
 import Header from "@/components/layout/Header";
 import { Inter } from "next/font/google";
 import "../globals.css";
-import { icons } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"] });
 export default function AppLayout({ children }) {
   return (
     
-    <html lang="en">
-      <body className={inter.className}><div className="flex min-h-screen bg-(--surface-primary) text-(--text-primary)">
+    <div className="flex min-h-screen bg-(--surface-primary) text-(--text-primary)">
 
       {/* SIDEBAR */}
       <Sidebar />
@@ -27,8 +25,7 @@ export default function AppLayout({ children }) {
 
       </div>
 
-    </div></body>
-    </html>
+    </div>
   );
 }
 
