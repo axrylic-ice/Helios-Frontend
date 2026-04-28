@@ -120,7 +120,7 @@ export default function Sidebar() {
         </nav>
 
         {/* Bottom Help Section */}
-        <div className={`mt-auto text-(--text-secondary) cursor-pointer hover:text-white transition-colors py-4 flex items-center w-full ${
+        <div className={`mt-auto text-(--text-secondary) cursor-pointer hover:text-white transition-colors py-8 flex items-center w-full ${
           isExpanded ? "px-2 gap-4" : "justify-center"
         }`}>
           <HelpCircle size={20} />
