@@ -39,7 +39,7 @@ export default function MarketIntelligence({ className }) {
   ];
 
   return (
-    <div className={`mt-4 w-full ${className || ""}`}>
+    <div className={`mt-4 w-full ${className || ""} max-w-100%`}>
       {/* Header Section */}
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-s font-bold text-[#d3c4b2]/30">

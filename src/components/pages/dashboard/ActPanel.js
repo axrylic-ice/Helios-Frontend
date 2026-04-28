@@ -8,7 +8,7 @@ export default function ActPanel() {
   const strokeDashoffset = strokeDasharray - (confidence / 100) * strokeDasharray;
 
   return (
-    <div className="w-full bg-[#1E1E1E] rounded-2xl shadow-[0_24px_48px_rgba(0,0,0,0.6)] p-6 md:p-10 relative overflow-hidden">
+    <div className="max-w-full bg-[#1E1E1E] rounded-2xl shadow-[0_24px_48px_rgba(0,0,0,0.6)] p-6 md:p-10 relative overflow-hidden">
       {/* TOP BAR - Stacked on tiny screens, Row on mobile+ */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 md:mb-10">
         <div className="flex items-center gap-2">

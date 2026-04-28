@@ -16,11 +16,11 @@ export default function DashboardPage() {
   `;
 
   return (
-    <main className="min-h-screen  animate-page-enter">
+    <main className="min-h-screen  animate-page-enter max-w-full">
       {/* Injecting a one-time entry animation */}
       <style dangerouslySetInnerHTML={{ __html: pageFadeStyle }} />
       
-      <div className="max-w-[1600px] mx-auto p-4 md:p-6 lg:p-8 space-y-12">
+      <div className="max-w-[1600px]  md:p-6 lg:p-8 ">
         
         {/* ACTIONABLE INTELLIGENCE */}
         <section aria-label="Action Panel" className="w-full">

@@ -10,7 +10,7 @@ export default function EngineRoomRow() {
   return (
     <section
       className="
-      w-full 
+      max-w-100% 
       grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 
       gap-6 items-center 
       p-6
