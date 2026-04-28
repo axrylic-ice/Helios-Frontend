@@ -50,9 +50,9 @@ export default function Sidebar() {
           transition-transform duration-300 ease-out will-change-transform
           
           /* Visibility & Size Logic */
-          w-[280px] /* Fixed width on mobile for smooth slide */
+          w-[250px] /* Fixed width on mobile for smooth slide */
           ${isExpanded 
-            ? "translate-x-0 items-start px-4" 
+            ? "translate-x-0 items-start px-4 pb-4" 
             : "translate-x-full md:translate-x-0 md:w-17.75 md:items-center md:flex"
           }
         `}

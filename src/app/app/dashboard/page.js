@@ -16,7 +16,7 @@ export default function DashboardPage() {
   `;
 
   return (
-    <main className="min-h-screen  animate-page-enter max-w-full">
+    <main className="min-h-screen  animate-page-enter max-w-full  overflow-hidden items-center">
       {/* Injecting a one-time entry animation */}
       <style dangerouslySetInnerHTML={{ __html: pageFadeStyle }} />
       
