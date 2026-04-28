@@ -45,7 +45,7 @@ export default function Sidebar() {
         className={`
           fixed inset-y-0 right-0 z-50 
           md:sticky md:top-0 
-          h-screen bg-(--surface-primary) border-l border-white/5 md:border-r md:border-l-0 flex flex-col py-10 
+         max-h-screen bg-(--surface-primary) border-l border-white/5 md:border-r md:border-l-0 flex flex-col py-10 
           /* Smooth hardware-accelerated movement */
           transition-transform duration-300 ease-out will-change-transform
           

@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
 
 export const metadata = {
   title: "Fotuna ",
-  description: "A dashboard for monitoring and analyzing financial signals.",
+  description: "Mitigate currency volatility with predictive FX insights.",
   icons: {
     icon: "/favicon.svg",
   },

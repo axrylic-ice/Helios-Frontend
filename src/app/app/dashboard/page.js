@@ -16,27 +16,20 @@ export default function DashboardPage() {
   `;
 
   return (
-    <main className="min-h-screen  animate-page-enter max-w-full  overflow-hidden items-center">
+    <main className="min-h-screen  animate-page-enter max-w-full   overflow-hidden items-center">
       {/* Injecting a one-time entry animation */}
       <style dangerouslySetInnerHTML={{ __html: pageFadeStyle }} />
       
       <div className="max-w-[1600px]  md:p-6 lg:p-8 ">
         
         {/* ACTIONABLE INTELLIGENCE */}
-        <section aria-label="Action Panel" className="w-full">
+        <section aria-label="Action Panel" className="w-full mb-4 md:mb-8">
           <ActPanel />
         </section>
 
         {/* LIVE ENGINE DATA */}
         <section aria-label="Engine Status" className="overflow-x-hidden">
-          {/* Header for the Engine Room section */}
-          <div className="flex items-center gap-4 mb-6 px-2">
-            <h2 className="text-[#D3C4B2]/40 text-[10px] font-black uppercase tracking-[0.3em]">
-              Real-time Analysis Engine
-            </h2>
-            <div className="h-[1px] flex-grow bg-white/5" />
-          </div>
-          
+          {/* Header for the Engine Room section */}     
           <EngineRoomRow />
           <MarketIntelligence />
         </section>
