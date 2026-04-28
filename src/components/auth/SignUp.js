@@ -34,7 +34,7 @@ export default function SignUpPage() {
   const handleSignUp = (e) => {
     e.preventDefault();
     if (validate()) {
-      router.push("/dashboard");
+      router.push("/app/dashboard");
     } else {
       setIsShaking(true);
       setTimeout(() => setIsShaking(false), 500);

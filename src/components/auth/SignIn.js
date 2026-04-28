@@ -35,7 +35,7 @@ export default function SignIn() {
   const handleSignIn = (e) => {
     e.preventDefault();
     if (validate()) {
-      router.push("/dashboard");
+      router.push("/app/dashboard");
     } else {
       setIsShaking(true);
       setTimeout(() => setIsShaking(false), 500);
