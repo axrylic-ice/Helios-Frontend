@@ -1,0 +1,14 @@
+{
+  "hosting": {
+    "site": "fotunafx",
+    "rewrites": [
+      {
+        "source": "**",
+        "run": {
+          "serviceId": "fotuna",
+          "region": "europe-west1"
+        }
+      }
+    ]
+  }
+}

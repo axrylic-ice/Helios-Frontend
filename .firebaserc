@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "fotuna-frontend"
+  },
+  "targets": {
+    "fotuna-frontend": {
+      "hosting": {
+        "main": [
+          "fotunafx"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
