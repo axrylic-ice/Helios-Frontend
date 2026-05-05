@@ -1,6 +1,8 @@
 // lib/api.js
+import dotenv from "dotenv";
+dotenv.config();
 
-const API_BASE = "https://helios-backend-966417183733.us-central1.run.app";
+const API_BASE = process.env.BACKEND_URL;
 
 // ===============================
 // 🔐 TOKEN HANDLING

@@ -6,9 +6,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Logo from "../icons/Logo";
+import dotenv from "dotenv";
+dotenv.config();
 
-const API_BASE =
-  "https://helios-backend-966417183733.us-central1.run.app";
+const API_BASE = process.env.BACKEND_URL;
 
 export default function SignIn() {
   const router = useRouter();
@@ -45,7 +46,7 @@ const handleSignIn = async (e) => {
   }
 
   try {
-    const res = await fetch("https://helios-backend-966417183733.us-central1.run.app/auth/login", {
+    const res = await fetch(`${API_BASE}/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
