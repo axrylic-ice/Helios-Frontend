@@ -1,4 +1,4 @@
-// src/app/auth/template.js
+// src/app/template.js
 "use client";
 import { motion } from "framer-motion";
 

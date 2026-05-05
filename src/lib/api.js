@@ -1,8 +1,7 @@
 // lib/api.js
-import dotenv from "dotenv";
-dotenv.config();
 
-const API_BASE = process.env.BACKEND_URL;
+
+const API_BASE = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 // ===============================
 // 🔐 TOKEN HANDLING
