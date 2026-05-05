@@ -1,10 +1,46 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import ActPanel from "@/components/pages/dashboard/ActPanel";
 import EngineRoomRow from "@/components/pages/dashboard/EngineRoomRow";
 import MarketIntelligence from "@/components/pages/dashboard/MarketIntelligence";
+import { analyzeDecision } from "@/lib/api";
 
 export default function DashboardPage() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const load = async () => {
+    try {
+      setLoading(true);
+
+      const res = await analyzeDecision({
+        fx_pair: "NGN/USD",
+        amount: 1000,
+        time_horizon_days: 2,
+      });
+
+      console.log("ENGINE RESPONSE:", res);
+
+      setData(res);
+    } catch (err) {
+      console.error("Dashboard API error:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await load();
+    };
+
+    fetchData();
+
+    const interval = setInterval(load, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
   const pageFadeStyle = `
     @keyframes pageEnter {
       from { opacity: 0; transform: translateY(10px); }
@@ -16,24 +52,20 @@ export default function DashboardPage() {
   `;
 
   return (
-    <main className="min-h-screen  animate-page-enter max-w-full   overflow-hidden items-center">
-      {/* Injecting a one-time entry animation */}
+    <main className="min-h-screen animate-page-enter max-w-full overflow-hidden">
       <style dangerouslySetInnerHTML={{ __html: pageFadeStyle }} />
-      
-      <div className="max-w-[1600px]  md:p-6 lg:p-8 ">
-        
-        {/* ACTIONABLE INTELLIGENCE */}
-        <section aria-label="Action Panel" className="w-full mb-4 md:mb-8">
-          <ActPanel />
+
+      <div className="max-w-[1600px] md:p-6 lg:p-8">
+
+        <section className="w-full mb-4 md:mb-8">
+          <ActPanel data={data} loading={loading} />
         </section>
 
-        {/* LIVE ENGINE DATA */}
-        <section aria-label="Engine Status" className="overflow-x-hidden">
-          {/* Header for the Engine Room section */}     
-          <EngineRoomRow />
-          <MarketIntelligence />
+        <section>
+          <EngineRoomRow data={data} />
+          <MarketIntelligence data={data} />
         </section>
-        
+
       </div>
     </main>
   );

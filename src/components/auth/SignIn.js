@@ -7,6 +7,9 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Logo from "../icons/Logo";
 
+const API_BASE =
+  "https://helios-backend-966417183733.us-central1.run.app";
+
 export default function SignIn() {
   const router = useRouter();
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -32,15 +35,47 @@ export default function SignIn() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSignIn = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      router.push("/app/dashboard");
-    } else {
-      setIsShaking(true);
-      setTimeout(() => setIsShaking(false), 500);
+const handleSignIn = async (e) => {
+  e.preventDefault();
+
+  if (!validate()) {
+    setIsShaking(true);
+    setTimeout(() => setIsShaking(false), 500);
+    return;
+  }
+
+  try {
+    const res = await fetch("https://helios-backend-966417183733.us-central1.run.app/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: formData.email,
+        password: formData.password,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      setErrors({
+        email: data.message || "Login failed",
+      });
+      return;
     }
-  };
+
+    // store session
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("user", JSON.stringify(data.data.user));
+
+    router.push("/app/dashboard");
+
+  } catch (err) {
+    console.error(err);
+    setErrors({ email: "Server error. Try again." });
+  }
+};
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen w-full overflow-x-hidden bg-[#050505] font-sans">

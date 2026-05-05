@@ -1,3 +1,5 @@
+"use client";
+
 import EngineMetricsCard from "../../engine/EngineMetricsCard";
 import LSTMCard from "../../engine/LSTMCard";
 import PolyBayseCard from "../../engine/PolyBayseCard";
@@ -6,7 +8,7 @@ import LargePriceCard from "@/components/engine/LargePriceCard";
 import MarketContextList from "@/components/engine/MarketContextList";
 import CurrentRateCard from "@/components/engine/CurrentRateCard";
 
-export default function EngineRoomRow() {
+export default function EngineRoomRow({ data }) {
   return (
     <section
       className="
@@ -19,42 +21,37 @@ export default function EngineRoomRow() {
       border border-white/5
     "
     >
+      {/* ENGINE CORE (NOW REAL DATA) */}
       <div>
-        <EngineMetricsCard />
+        <EngineMetricsCard data={data} />
       </div>
 
       <div>
-        <LSTMCard />
+        <LSTMCard data={data} />
       </div>
 
       <div>
-        <PolyBayseCard />
+        <PolyBayseCard data={data} />
       </div>
-      {/* 1. TOP LEFT: LARGE PRICE (Spans 2 columns) */}
 
-      {/* 3. THE 2-ROW SIDEBAR: CONVERTER & RATE 
-          This spans 2 rows vertically to balance the layout.
-      */}
+      {/* SIDE PANEL */}
       <div className="lg:row-span-2 flex flex-col gap-6 h-full">
         <div className="flex-grow">
           <ConverterPanel />
         </div>
         <div className="mt-auto">
-          <CurrentRateCard />
+          <CurrentRateCard data={data}  />
         </div>
       </div>
 
-      {/* 4. BOTTOM ROW: ENGINE MODELS 
-          These will naturally sit under the Large Price and Market Context
-      */}
-
+      {/* PRICE */}
       <div className="lg:col-span-2">
-        <LargePriceCard />
+        <LargePriceCard data={data} />
       </div>
 
-      {/* 2. TOP RIGHT: MARKET CONTEXT */}
+      {/* MARKET CONTEXT */}
       <div>
-        <MarketContextList ClassName="justify-self-center" />
+        <MarketContextList className="justify-self-center" data={data}  />
       </div>
     </section>
   );

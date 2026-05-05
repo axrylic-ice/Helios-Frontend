@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function ConverterPanel() {
   const [amount, setAmount] = useState(1);
   const [fromCurrency, setFromCurrency] = useState("NGN");
   const [toCurrency, setToCurrency] = useState("USD");
   const [displayResult, setDisplayResult] = useState(0);
+
+  const animationRef = useRef(null);
 
   // Example rates for 2026 trends
   const rates = {
@@ -19,9 +21,13 @@ export default function ConverterPanel() {
   const conversionRate = rates[toCurrency] / rates[fromCurrency];
   const actualResult = amount * conversionRate;
 
-  // Subtle Counter Animation
+  // FIXED: Smooth, non-stacking animation logic
   useEffect(() => {
-    let start = displayResult;
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+    }
+
+    const start = displayResult;
     const end = actualResult;
     const duration = 400;
     const startTime = performance.now();
@@ -30,15 +36,21 @@ export default function ConverterPanel() {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const ease = 1 - Math.pow(1 - progress, 3);
+
       setDisplayResult(start + (end - start) * ease);
-      if (progress < 1) requestAnimationFrame(animate);
+
+      if (progress < 1) {
+        animationRef.current = requestAnimationFrame(animate);
+      }
     };
 
-    requestAnimationFrame(animate);
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationRef.current);
   }, [actualResult]);
 
   return (
-    <div className="w-full h-full bg-[#151515] rounded-3xl p-6 md:p-6 flex flex-col border border-white/5 transition-all duration-500 hover:border-[#F3BE68]/20">
+    <div className="w-full h-full bg-[#151515] rounded-3xl p-4 md:p-4 flex flex-col border border-white/5 transition-all duration-500 hover:border-[#F3BE68]/20">
       <h2 className="text-white font-bold text-lg mb-4">Currency Converter</h2>
 
       {/* Input Group */}
@@ -91,13 +103,15 @@ export default function ConverterPanel() {
         <p className="text-gray-500 text-[10px] uppercase tracking-widest mb-1">
           Converted Value
         </p>
-        <h1 className="text-3xl md:text-4xl font-black text-[#F3BE68] leading-none mb-2 tabular-nums h-10 overflow-x-clip break-all overflow-y-auto drop-shadow-[0_0_10px_rgba(243,190,104,0.1)]">
+
+        <h1 className="text-3xl md:text-3xl font-black text-[#F3BE68] leading-none mb-2 tabular-nums h-10 overflow-x-clip break-all overflow-y-auto drop-shadow-[0_0_10px_rgba(243,190,104,0.1)]">
           {toCurrency === "USD" ? "$" : toCurrency === "GBP" ? "£" : "₦"}
           {displayResult.toLocaleString(undefined, {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
           })}
         </h1>
+
         <p className="text-[10px] text-gray-600 font-mono">
           Rate: 1 {fromCurrency} = {conversionRate.toFixed(6)} {toCurrency}
         </p>

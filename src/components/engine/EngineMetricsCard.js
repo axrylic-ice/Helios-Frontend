@@ -4,8 +4,9 @@ import React from "react";
 import EngineCard from "./EngineCard";
 import { marketPulseDetails } from "./DummyData";
 
-export default function EngineMetricsCard() {
-  const healthScore = 82;
+export default function EngineMetricsCard({ data }) {
+
+  const healthScore = Math.round((data?.confidence ?? 0) * 100);
 
   const animationStyles = `
     @keyframes barShimmer {
@@ -25,10 +26,8 @@ export default function EngineMetricsCard() {
       details={marketPulseDetails}
       title="Market Pulse"
     >
-      {/* Injecting keyframes safely */}
       <style dangerouslySetInnerHTML={{ __html: animationStyles }} />
 
-      {/* HEADER SECTION */}
       <div className="flex justify-between items-start w-full mb-6 ">
         <div className="flex flex-col gap-1">
           <p className=" text-[10px] tracking-[1px] text-[#D3C4B2] uppercase">
@@ -38,15 +37,23 @@ export default function EngineMetricsCard() {
             Market Pulse
           </h3>
         </div>
-
-        {/* ICON with Subtle Pulse */}
       </div>
 
-      {/* METRICS LIST */}
       <div className="flex flex-col gap-4">
         {[
-          { label: "Volatility", value: "Stable", color: "text-[#43E188]" },
-          { label: "Liquidity", value: "High", color: "text-[#E5E2E1]" },
+          {
+            label: "Volatility",
+            value: data?.market_state?.volatility_level ?? "UNKNOWN",
+            color:
+              data?.market_state?.volatility_level === "HIGH"
+                ? "text-red-400"
+                : "text-[#43E188]",
+          },
+          {
+            label: "Liquidity",
+            value: data?.market_state?.liquidity_level ?? "UNKNOWN",
+            color: "text-[#E5E2E1]",
+          },
         ].map((metric, i) => (
           <div
             key={i}
@@ -64,7 +71,6 @@ export default function EngineMetricsCard() {
         ))}
       </div>
 
-      {/* HEALTH PROGRESS SECTION */}
       <div className="mt-auto bg-[#0E0E0E] rounded-[48px] py-3 px-4 flex align-center flex-col gap-2 shadow-[inset_4px_4px_8px_rgba(0,0,0,0.5),inset_-1px_-1px_2px_rgba(255,255,255,0.05)]">
         <div className="flex justify-between items-center w-full">
           <span className=" text-[10px] text-[#D3C4B2] leading-[15px]">
@@ -75,13 +81,11 @@ export default function EngineMetricsCard() {
           </span>
         </div>
 
-        {/* PROGRESS BAR with Shimmer Effect */}
         <div className="h-1 w-full bg-[#353534] rounded-full relative overflow-hidden">
           <div
             className="absolute left-0 top-0 h-full bg-[#F3BE68] transition-all duration-700 ease-out"
             style={{ width: `${healthScore}%` }}
           >
-            {/* Moving light shimmer across the filled portion */}
             <div
               className="absolute inset-0 w-full h-full"
               style={{
