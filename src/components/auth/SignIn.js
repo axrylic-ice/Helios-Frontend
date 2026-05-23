@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import Logo from "../icons/Logo";
 
 const API_BASE =
-  "https://helios-backend-966417183733.us-central1.run.app";
+  "https://helios-backend-nf3l.onrender.com";
 
 export default function SignIn() {
   const router = useRouter();
@@ -45,7 +45,7 @@ const handleSignIn = async (e) => {
   }
 
   try {
-    const res = await fetch("https://helios-backend-966417183733.us-central1.run.app/auth/login", {
+    const res = await fetch(`${API_BASE}/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
