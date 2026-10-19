@@ -36,22 +36,21 @@ export default function MarketIntelligenceSection() {
           transition={{ delay: 0.3, duration: 1 }}
           className="mt-12 font-serif font-medium text-4xl md:text-[56px] leading-tight text-white text-center max-w-[900px]"
         >
-          Multi-Layer Intelligence,{" "}
-          <span className="text-[#C29241]">Simplified</span>
+          Market Intelligence
         </motion.h2>
 
         {/* ===== CARDS GRID ===== */}
         <div className="mt-24 md:mt-36 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-start">
           <IntelligenceCard
             index={0}
-            title="Fast-Moving Markets (LSTM)"
+            title="Market Signals"
             desc="Processes sequential market signals like oil and official rates with a 7-day lookback to capture immediate volatility."
             icon={<PulseIcon />}
           />
 
           <IntelligenceCard
             index={1}
-            title="Structural Risk Layer"
+            title="Risk Layer"
             desc="Evaluates macroeconomic exposure across import cycles, identifying delayed FX impact risks before settlement."
             className="lg:translate-y-20"
             icon={<ShieldIcon />}
@@ -59,7 +58,7 @@ export default function MarketIntelligenceSection() {
 
           <IntelligenceCard
             index={2}
-            title="Settlement Risk Engine"
+            title="Settlement Engine"
             desc="Models timing mismatches between shipment delivery and FX settlement exposure windows."
             icon={<TimerIcon />}
           />
