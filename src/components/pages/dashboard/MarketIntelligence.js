@@ -31,9 +31,9 @@ export default function MarketIntelligence({ className, data }) {
 
       {/* Header Section */}
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-s font-bold text-[#d3c4b2]/30">
+        <h3 className="text-s font-bold text-[#d3c4b2]/30">
           Market Intelligence
-        </h2>
+        </h3>
         <button className="text-[#f3be68] text-xs font-medium hover:underline transition-all">
           View All Intelligence
         </button>
